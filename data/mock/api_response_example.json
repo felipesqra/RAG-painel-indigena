@@ -1,0 +1,31 @@
+{
+  "distrito_sanitario_especial_indigena_dsei": "YANOMAMI",
+  "coleta_e_destinacao_de_residuos_solidos_percentual_de_aldeias_onde_a_prefeitura_e_a_principal_responsavel": "15%",
+  "coleta_e_destinacao_de_residuos_solidos_percentual_de_aldeias_onde_o_dsei_e_o_principal_responsavel": "20%",
+  "coleta_e_destinacao_de_residuos_solidos_percentual_de_aldeias_onde_a_propria_aldeia_e_a_principal_responsavel": "40%",
+  "coleta_e_destinacao_de_residuos_solidos_percentual_de_aldeias_onde_nao_ha_informacao_sobre_os_responsaveis": "25%",
+  "possui_coleta_seletiva_implantada_percentual_de_aldeias_que_nao_possuem_coleta_seletiva": "90%",
+  "logistica_reversa_percentual_de_aldeias_que_realizam_logistica_reserva": "0%",
+  "pratica_de_queima_de_residuos_pela_comunidade_percentual_de_aldeias_que_possuem_a_pratica_de_queima_dos_residuos": "70%",
+  "exist_estrut_perc_ald_sem_estrutura": "60%",
+  "tipo_trat_esgoto_perc_ald_sem_informacao": "50%",
+  "populacao_total": "30000",
+  "numero_de_aldeias": "300",
+  "_aldeias_com_infraestrutura": "100",
+  "sem_info_pop": "5000",
+  "parametros": [
+    {
+      "id_agravo": "A90",
+      "dt_notific": "2024-01-15",
+      "sg_uf_not": "RR",
+      "id_municip": "140010",
+      "sg_uf": "RR",
+      "id_mn_resi": "140010",
+      "febre": 1,
+      "mialgia": 1,
+      "alrm_vom": 1,
+      "hospitaliz": 1,
+      "evolucao": 1
+    }
+  ]
+}
