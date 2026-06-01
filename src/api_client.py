@@ -5,7 +5,7 @@ from .config import settings
 async def fetch_api_data(dsei: str, data_init: str, data_end: str) -> Dict[str, Any]:
     url = settings.API_URL
     timeout = settings.API_TIMEOUT_SECONDS
-    payload = {
+    params = {
         "dsei": dsei,
         "data_init": data_init,
         "data_end": data_end
@@ -13,7 +13,10 @@ async def fetch_api_data(dsei: str, data_init: str, data_end: str) -> Dict[str, 
 
     try:
         async with httpx.AsyncClient(timeout=timeout) as client:
-            response = await client.post(url, json=payload)
+            if settings.API_METHOD.upper() == "POST":
+                response = await client.post(url, json=params)
+            else:
+                response = await client.get(url, params=params)
             response.raise_for_status()
             return response.json()
     except httpx.TimeoutException:

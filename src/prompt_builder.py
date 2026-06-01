@@ -49,6 +49,9 @@ Data context:
 DSEI: {summary.dsei}
 Period: {summary.period.data_init} to {summary.period.data_end}
 
+Dengue Case Context:
+{summary.dengue_cases}
+
 Direct Dengue Risk Factors:
 {[f.model_dump() for f in summary.direct_dengue_risk_factors]}
 

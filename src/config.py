@@ -4,6 +4,7 @@ from pydantic_settings import BaseSettings
 class Settings(BaseSettings):
     GEMINI_API_KEY: str = "sua_chave_gemini"
     API_URL: str = "https://sua-api.com/endpoint"
+    API_METHOD: str = "GET"
     GEMINI_MODEL: str = "gemini-2.5-flash"
     GEMINI_EMBEDDING_MODEL: str = "models/text-embedding-004"
     CHROMA_PERSIST_DIR: str = "storage/chroma"
@@ -13,6 +14,7 @@ class Settings(BaseSettings):
     REINDEX_ON_STARTUP: bool = False
     ADMIN_TOKEN: str = "troque_este_token"
     API_TIMEOUT_SECONDS: int = 60
+    CORS_ORIGINS: str = "*"
 
     class Config:
         env_file = ".env"

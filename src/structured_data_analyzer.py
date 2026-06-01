@@ -6,6 +6,13 @@ def analyze_structured_data(api_data: Dict[str, Any], interpreted_fields: List[I
         dsei=dsei,
         period=Period(data_init=data_init, data_end=data_end)
     )
+    if "casos_dengue" in api_data or "casos_dengue_mensal" in api_data:
+        summary.dengue_cases = {
+            "total": api_data.get("casos_dengue", 0),
+            "monthly": api_data.get("casos_dengue_mensal", []),
+            "data_init": api_data.get("data_init", data_init),
+            "data_end": api_data.get("data_end", data_end),
+        }
 
     for field in interpreted_fields:
         if "governance" in field.group.lower() or field.dengue_relevance == "governance":

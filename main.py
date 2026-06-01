@@ -1,4 +1,5 @@
 from fastapi import FastAPI, Depends, HTTPException, Header
+from fastapi.middleware.cors import CORSMiddleware
 from typing import Optional, Dict, Any
 from src.schemas import InterventionRequest
 from src.config import settings
@@ -13,6 +14,15 @@ from src.chunker import chunk_text
 from src.vector_store import vector_store
 
 app = FastAPI(title="Dengue Intervention Proposal API")
+
+cors_origins = [origin.strip() for origin in settings.CORS_ORIGINS.split(",") if origin.strip()]
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=cors_origins or ["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.on_event("startup")
 async def startup_event():

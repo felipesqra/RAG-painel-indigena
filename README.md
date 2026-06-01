@@ -39,7 +39,8 @@ O `src/field_catalog.py` contém uma lista extensa de chaves de API mapeadas com
 Crie um `.env` a partir do `.env.example`:
 ```ini
 GEMINI_API_KEY=sua_chave_gemini_aqui
-API_URL=https://sua-api-externa.com/endpoint
+API_URL=https://painel-dengue-aldeias-indigenas-production.up.railway.app/api/dashboard
+API_METHOD=GET
 GEMINI_MODEL=gemini-2.5-flash
 GEMINI_EMBEDDING_MODEL=models/text-embedding-004
 CHROMA_PERSIST_DIR=storage/chroma
@@ -49,6 +50,7 @@ MOCK_API_RESPONSE_PATH=data/mock/api_response_example.json
 REINDEX_ON_STARTUP=false
 ADMIN_TOKEN=super_secreto_token_admin
 API_TIMEOUT_SECONDS=60
+CORS_ORIGINS=*
 ```
 
 ## Como Executar Localmente
