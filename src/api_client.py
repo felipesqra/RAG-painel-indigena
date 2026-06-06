@@ -2,14 +2,24 @@ import httpx
 from typing import Dict, Any
 from .config import settings
 
+def normalize_url(value: str, env_name: str) -> str:
+    url = value.strip()
+    if any(ord(char) < 32 or ord(char) == 127 for char in url):
+        raise ValueError(f"{env_name} contem caracteres de controle. Remova quebras de linha ou espacos dentro da URL.")
+    return url
+
 async def fetch_api_data(dsei: str, data_init: str, data_end: str) -> Dict[str, Any]:
-    url = settings.API_URL
     timeout = settings.API_TIMEOUT_SECONDS
     params = {
         "dsei": dsei,
         "data_init": data_init,
         "data_end": data_end
     }
+
+    try:
+        url = normalize_url(settings.API_URL, "API_URL")
+    except ValueError as e:
+        return {"error": str(e)}
 
     try:
         async with httpx.AsyncClient(timeout=timeout) as client:
